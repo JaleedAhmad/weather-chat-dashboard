@@ -26,20 +26,16 @@
 ## Diagrams
 
 ### 1. Hardware Circuit Diagram  
-![Hardware Circuit Diagram](./diagrams/hardware_circuit_diagram.png)  
-*Shows the wiring between Raspberry Pi GPIO pins and the DHT11 sensor.*
+[Hardware Circuit Diagram](diagrams/hardware_circuit_diagram.png)
 
 ### 2. API Structure  
-![API Structure](./diagrams/api_structure.png)  
-*Illustrates the Flask backend endpoints `/data` and `/chat`, and integration with the Mistral API.*
+[API Structure](diagrams/api_structure.png)
 
 ### 3. Hardware Flow of Weather Monitoring System  
-![Hardware Flow](./diagrams/hardware_flow.png)  
-*Displays the data flow from sensor reading, through processing, to storage.*
+[Hardware Workflow](diagrams/hardware_workflow_weather_monitoring.png)
 
 ### 4. Software Workflow of IoT System  
-![Software Workflow](./diagrams/software_workflow.png)  
-*Demonstrates the frontend-backend interaction, sensor data polling, and chat message exchange.*
+![Software Workflow](diagrams/software_workflow_iot_system.png)
 
 ---
 
