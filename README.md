@@ -1,98 +1,29 @@
-````markdown
-# Weather & Chat Dashboard
+```markdown
+🌦️ Weather & Chat Dashboard
 
-🌫️ A real-time weather monitoring dashboard with temperature and humidity graphs using a DHT11 sensor on a Raspberry Pi, integrated with a chat interface powered by Mistral AI.
-
----
-
-## Features
-
-- Live temperature and humidity charts updated every 15 seconds
-- Historical data table for recent sensor readings
-- Interactive chat interface to ask weather-related questions using the Mistral API
-- Responsive, dark-themed UI built with HTML, CSS, and Chart.js
-- Backend powered by Flask, reading from DHT11 sensor via Adafruit CircuitPython libraries
+A real-time **weather monitoring dashboard** using a DHT11 sensor on Raspberry Pi, with an interactive chat interface powered by **Mistral AI**.
 
 ---
 
-## Hardware Setup
+🛠️ Features
 
-- Raspberry Pi (any model with GPIO pins)
-- DHT11 Temperature and Humidity Sensor connected to GPIO4 (Pin 7)
-- Proper wiring following [Adafruit DHT11 guide](https://learn.adafruit.com/dht)
-
----
-
-## Diagrams
-
-### 1. Hardware Circuit Diagram  
-![Hardware Circuit Diagram](diagrams/hardware_circuit_diagram.png)
-
-### 2. API Structure  
-![API Structure](diagrams/api_structure.png)
-
-### 3. Hardware Workflow of Weather Monitoring System  
-![Hardware Workflow](diagrams/hardware_workflow_weather_monitoring.png)
-
-### 4. Software Workflow of IoT System  
-![Software Workflow](diagrams/software_workflow_iot_system.png)
+- 🌡️ Live temperature and humidity charts (updated every 15 seconds)
+- 📈 Historical data table of recent sensor readings
+- 💬 Chat interface to ask weather-related questions via Mistral API
+- 🌓 Responsive, dark-themed UI (HTML, CSS, Chart.js)
+- 🐍 Backend powered by Flask and Adafruit CircuitPython libraries
 
 ---
 
-## Installation
+🖥️ Project Structure
 
-1. Clone this repository:
 
-   ```bash
-   git clone https://github.com/<your-github-username>/weather-chat-dashboard.git
-   cd weather-chat-dashboard
-````
-
-2. (Optional but recommended) Create and activate a Python virtual environment:
-
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Update the Mistral API key in `app.py`:
-
-   ```python
-   MISTRAL_API_KEY = "your_api_key_here"
-   ```
-
----
-
-## Usage
-
-Run the Flask app:
-
-```bash
-python app.py
-```
-
-Open your browser at `http://<raspberry-pi-ip>:5050`
-
-* View real-time weather data on the **Dashboard** tab
-* Chat with the AI assistant about the weather on the **Chat** tab
-
----
-
-## Project Structure
-
-```
 weather-chat-dashboard/
 ├── diagrams/
-│   ├── api_structure.png
-│   ├── hardware_circuit_diagram.png
-│   ├── hardware_workflow_weather_monitoring.png
-│   └── software_workflow_iot_system.png
+│   ├── api\_structure.png
+│   ├── hardware\_circuit\_diagram.png
+│   ├── hardware\_workflow\_weather\_monitoring.png
+│   └── software\_workflow\_iot\_system.png
 ├── templates/
 │   └── index.html
 ├── static/
@@ -101,25 +32,95 @@ weather-chat-dashboard/
 ├── app.py
 ├── requirements.txt
 └── README.md
+
+````
+
+
+🔌 Hardware Setup
+
+- Raspberry Pi (any model with GPIO pins)
+- DHT11 Temperature & Humidity Sensor connected to GPIO4 (Pin 7)
+- Proper wiring using [Adafruit DHT11 guide](https://learn.adafruit.com/dht)
+
+
+ 🗂️ System Diagrams
+
+ 📟 Hardware Circuit Diagram
+![Hardware Circuit Diagram](diagrams/hardware_circuit_diagram.png)
+
+ 🛜 API Structure
+![API Structure](diagrams/api_structure.png)
+
+ 🔄 Hardware Workflow
+![Hardware Workflow](diagrams/hardware_workflow_weather_monitoring.png)
+
+🧩 Software Workflow
+![Software Workflow](diagrams/software_workflow_iot_system.png)
+
+---
+
+⚙️ Installation
+
+Step 1: Clone the Repository
+```bash
+git clone https://github.com/JaleedAhmad/weather-chat-dashboard.git
+cd weather-chat-dashboard
+````
+
+ Step 2: (Recommended) Create Virtual Environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+ Step 3: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+ Step 4: Add Your Mistral API Key
+
+In `app.py`:
+
+```python
+MISTRAL_API_KEY = "your_api_key_here"
 ```
 
 ---
 
-## Notes
+ 🚀 Run the App
 
-* Ensure your Raspberry Pi has the necessary permissions and libraries to read from GPIO.
-* The sensor data updates every 15 seconds and retains the last 30 readings.
-* Chat uses the Mistral medium model API; ensure you have internet access.
+```bash
+python app.py
+```
+
+Visit the app in your browser:
+`http://<raspberry-pi-ip>:5050`
+
+ Dashboard Tabs:
+
+* **Dashboard:** Live temperature & humidity updates
+* **Chat:** Ask weather-related questions to the AI assistant
 
 ---
 
-## License
+ 🗒️ Notes
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+* The Raspberry Pi must have GPIO access and required libraries installed.
+* Sensor data updates every 15 seconds and stores the last 30 readings.
+* Chat functionality uses the Mistral Medium Model API (internet required).
 
 ---
 
-## Acknowledgments
+📜 License
+
+MIT License
+
+---
+
+🙏 Acknowledgments
 
 * [Adafruit CircuitPython DHT library](https://github.com/adafruit/Adafruit_CircuitPython_DHT)
 * [Chart.js](https://www.chartjs.org/)
@@ -127,17 +128,12 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Feel free to open issues or contribute!
+ ✍️ Author
 
----
-
-*Developed by Your Name*
 Jaleed Ahmad
-
-````
-
----
-
+Weather Monitoring & Chat Dashboard
+[GitHub](https://github.com/<JaleedAhmad>)
 
 ---
 
+*Feel free to open issues or contribute to the project!*
