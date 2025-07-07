@@ -26,13 +26,13 @@
 ## Diagrams
 
 ### 1. Hardware Circuit Diagram  
-[Hardware Circuit Diagram](diagrams/hardware_circuit_diagram.png)
+![Hardware Circuit Diagram](diagrams/hardware_circuit_diagram.png)
 
 ### 2. API Structure  
-[API Structure](diagrams/api_structure.png)
+![API Structure](diagrams/api_structure.png)
 
-### 3. Hardware Flow of Weather Monitoring System  
-[Hardware Workflow](diagrams/hardware_workflow_weather_monitoring.png)
+### 3. Hardware Workflow of Weather Monitoring System  
+![Hardware Workflow](diagrams/hardware_workflow_weather_monitoring.png)
 
 ### 4. Software Workflow of IoT System  
 ![Software Workflow](diagrams/software_workflow_iot_system.png)
@@ -44,7 +44,7 @@
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/YourUsername/weather-chat-dashboard.git
+   git clone https://github.com/<your-github-username>/weather-chat-dashboard.git
    cd weather-chat-dashboard
 ````
 
@@ -89,10 +89,10 @@ Open your browser at `http://<raspberry-pi-ip>:5050`
 ```
 weather-chat-dashboard/
 ├── diagrams/
-│   ├── hardware_circuit_diagram.png
 │   ├── api_structure.png
-│   ├── hardware_flow.png
-│   └── software_workflow.png
+│   ├── hardware_circuit_diagram.png
+│   ├── hardware_workflow_weather_monitoring.png
+│   └── software_workflow_iot_system.png
 ├── templates/
 │   └── index.html
 ├── static/
@@ -132,15 +132,12 @@ Feel free to open issues or contribute!
 ---
 
 *Developed by Your Name*
+Jaleed Ahmad
 
-```
+````
 
 ---
 
-### How to use:
 
-- Put your diagrams (images) in a folder called `/diagrams` at your repo root.
-- Replace the filenames in the markdown image links with your actual image names if different.
+---
 
-Want me to help you generate GitHub-friendly SVG/PNG versions or a polished cover image?
-```
