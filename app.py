@@ -72,7 +72,7 @@ def data():
 
 # Mistral API
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
-MISTRAL_API_KEY = "tAqe6dQOSIeevLiW7bzIHuqtSNO99xXu"
+MISTRAL_API_KEY = "Here write your own api key"
 
 @app.route("/chat", methods=["POST"])
 def chat():
