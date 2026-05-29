@@ -1,238 +1,196 @@
-# AI Study Notes Agent 📚
-### Enterprise-Grade Multi-User AI Study Assistant
+# Weather & Chat Dashboard 🌦️
+### Real-time IoT Weather Monitoring & AI Assistant
 
 <p align="center">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Platform-Web-brightgreen?style=for-the-badge&logo=googlechrome&logoColor=white" />
-  <img src="https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" />
-  <img src="https://img.shields.io/badge/AI-Gemini%202.5%20Flash-FF6F00?style=for-the-badge&logo=google&logoColor=white" />
-  <img src="https://img.shields.io/badge/Database-Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-  <img src="https://img.shields.io/badge/Vector%20DB-ChromaDB-1890FF?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Platform-Raspberry%20Pi-C51A4A?style=for-the-badge&logo=raspberrypi&logoColor=white" />
+  <img src="https://img.shields.io/badge/Backend-Flask-000000?style=for-the-badge&logo=flask&logoColor=white" />
+  <img src="https://img.shields.io/badge/AI-Mistral%20AI-F37F40?style=for-the-badge&logo=mistral&logoColor=white" />
+  <img src="https://img.shields.io/badge/Hardware-DHT11-00979D?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Frontend-HTML%2FJS-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/Built%20with-Google%20Antigravity-34A853?style=for-the-badge&logo=google&logoColor=white" />
 </p>
 
 ---
 
-AI Study Notes Agent is an enterprise-grade, multi-user AI Study Assistant built locally on Python & Streamlit. This application drastically evolves from a minimal local PDF reader into a fully-fledged, cloud-native SaaS platform utilizing **Google's Gemini 2.5 Flash**, **RAG (Retrieval-Augmented Generation)**, **Search Grounding**, and **Supabase** to transform how users digest and interact with academic materials. Built using Google Antigravity and automated design-to-code pipelines.
-
----
-
-## 📸 Interface Preview
-
-*Showcasing the authentication flow, document pipeline, and dynamic generation options*
-
-<p align="center">
-  <img src="assets/login_page.png" alt="Login Page" width="30%">
-  <img src="assets/file_upload.png" alt="File Upload" width="30%">
-  <img src="assets/options.png" alt="Customization" width="30%">
-</p>
-*From left to right: Secure authentication, seamless multi-document uploads, and deep customization options.*
+Weather & Chat Dashboard is a real-time IoT weather monitoring system designed for Raspberry Pi. It integrates a live DHT11 temperature and humidity sensor with an interactive chat interface powered by **Mistral AI**. Built using Google Antigravity and automated design-to-code pipelines, it offers a seamless blend of hardware telemetry and advanced cloud-based reasoning.
 
 ---
 
 ## 💻 Tech Stack
 
-**Frontend & Core Framework**
-* **Framework:** Streamlit
-* **Language:** Python 3.10+
-* **Audio Generation:** gTTS (Google Text-To-Speech)
-* **Flashcard Compilation:** GenAnki
+**Frontend & Visuals**
+* **Languages:** HTML5, CSS3, JavaScript
+* **Visualization:** Chart.js
+* **Styling:** Custom Responsive Dark Theme
 
-**Backend & Data Layer**
-* **Relational Database & Auth:** Supabase (PostgreSQL)
-* **Vector Database:** ChromaDB
-* **Data Pipelines:** LangChain Text Splitters, PyPDF2
-* **Security:** bcrypt, OAuth 2.0 (Google/GitHub)
+**Backend & Hardware Layer**
+* **Framework:** Flask (Python)
+* **Hardware Interface:** Adafruit CircuitPython DHT
+* **Microcontroller:** Raspberry Pi (GPIO access)
 
 **AI & Inference**
-* **Core Reasoning Engine:** Google Gemini 2.5 Flash (`google-genai`)
-* **Vector Embeddings:** `gemini-embedding-001`
-* **Real-time Data Fetching:** Google Search Grounding API
+* **Core Engine:** Mistral AI API (Medium Model)
+* **Use Case:** Natural Language Weather Intelligence
 
 ---
 
 ## 🌐 Distributed System Architecture & Connectivity
 
-The AI Study Notes Agent utilizes a local processing engine seamlessly connected to cloud-based persistence and state-of-the-art AI inference pipelines.
+The Weather & Chat Dashboard is intentionally divided into specialized layers to ensure real-time hardware polling without blocking the interactive UI.
 
 ### System Diagram
 
 ```mermaid
 graph TD
     %% Client Layer
-    subgraph Client [User Interface]
-        A["Streamlit Frontend \n (Web Browser)"]
-        B["User Inputs \n (PDFs, Queries)"]
-        B --> A
+    subgraph Client [Web Dashboard]
+        A["Browser (HTML/JS)"]
+        B["Chart.js Canvas"]
+        C["Chat Interface"]
+        A <--> B
+        A <--> C
     end
 
-    %% Cloud/Data Layer
-    subgraph Data [Data & Persistence]
-        C[("Supabase \n (PostgreSQL)")]
-        D[("ChromaDB \n (Local Vector Store)")]
+    %% API Layer
+    subgraph Backend [Flask Server]
+        D["Flask API Router"]
+        E["Data Aggregator (15s interval)"]
+        F["Mistral AI Agent"]
+        D <--> E
+        D <--> F
     end
 
-    %% Inference/AI Layer
-    subgraph Inference [AI & Processing Engine]
-        E["Gemini 2.5 Flash \n (LLM)"]
-        F["Search Grounding \n (Google Search)"]
-        G["LangChain \n (RAG Pipeline)"]
-        H["gTTS & GenAnki \n (Exporters)"]
+    %% Hardware Layer
+    subgraph Hardware [IoT Layer]
+        G["Raspberry Pi GPIO"]
+        H["DHT11 Sensor"]
+        G <--> H
     end
 
     %% Connections
-    A <-->|Context & Auth History| C
-    A -->|Text Chunks| G
-    G <-->|Vector Embeddings| D
-    G <-->|Semantic Context| E
-    A <-->|API Requests| E
-    E <-->|Live Web Data| F
-    A -->|Generate Output| H
-    H -->|Podcasts / Anki Decks| A
+    A <-->|REST/AJAX| D
+    E <--> G
+    F <-->|API Calls| I["Mistral API (Cloud)"]
 ```
 
 ### Why the Ecosystem Modules Exist Separately
 
-**`Frontend` — Streamlit UI Engine**
-A dynamic, Python-driven user interface managing real-time chat interactions, PDF uploads, and complex layout configurations securely inside the user's browser without needing a complex JavaScript single-page application.
+**`Hardware Layer` — GPIO Polling**
+Gathers local physical sensor metrics directly via Raspberry Pi pins. Operating this distinctly ensures precise timing without interrupting asynchronous web requests.
 
-**`Data Layer` — Supabase & ChromaDB**
-Supabase acts as the remote source of truth for user sessions, saving chat histories and document metadata seamlessly. ChromaDB runs locally alongside the process, acting as an ultra-fast vector indexer for real-time document semantic search.
+**`Backend` — Flask API Engine**
+Acts as the bridge. It manages continuous 15-second sensor queries, limits the data array to the most recent 30 readings to manage memory, and securely proxies requests to the Mistral API.
 
-**`Inference` — Google Gemini & Grounding**
-Powers the intelligence of the application. Gemini 2.5 Flash acts as the orchestrator to synthesize study notes and converse with the user, while Google Search Grounding provides up-to-date internet knowledge dynamically injected into the chat context.
-
-### How the Components Are Connected
-
-**Data Flow & Client Actions:** The Streamlit frontend captures user inputs (PDFs, queries) and directly manages the session state, delegating storage tasks to Supabase for persistence.
-
-**Real-Time Retrieval-Augmented Generation (RAG):** When a user queries a document, the LangChain pipeline chunks the text, queries the local ChromaDB for semantic matches using `gemini-embedding-001`, and pipes the context into the Gemini 2.5 Flash LLM.
-
-**AI Inference Bridge:** The system dynamically routes prompts to Gemini 2.5 Flash, falling back to Google Search Grounding when real-time, external internet data is required to supplement the local document context.
+**`Frontend` — Dynamic Web Canvas**
+Renders real-time telemetry graphs and chat sequences using Chart.js. The UI remains highly responsive by asynchronously fetching updates without requiring full page reloads.
 
 ---
 
-## 🤖 Core Features & AI Pipeline Orchestration
+## 🔌 Hardware Setup & Diagrams
 
-The application utilizes a powerful Retrieval-Augmented Generation (RAG) pipeline to balance local document context with cloud-based reasoning:
+To deploy the physical sensors:
+* A Raspberry Pi (any model with GPIO pins)
+* DHT11 Temperature & Humidity Sensor connected to **GPIO4 (Pin 7)**
+* Follow the [Adafruit DHT11 guide](https://learn.adafruit.com/dht) for detailed wiring.
+
+<p align="center">
+  <img src="diagrams/hardware_circuit_diagram.png" alt="Hardware Circuit Diagram" width="45%">
+  <img src="diagrams/api_structure.png" alt="API Structure" width="45%">
+</p>
+<p align="center">
+  <img src="diagrams/hardware_workflow_weather_monitoring.png" alt="Hardware Workflow" width="45%">
+  <img src="diagrams/software_workflow_iot_system.png" alt="Software Workflow" width="45%">
+</p>
+
+---
+
+## 🤖 Core Features & Pipeline
 
 | Feature | Description |
 |-------|-------------|
-| **Intelligent PDF Processing** | Upload any academic PDF to instantly generate tailored study notes. Customize output by **Tone** (Academic, Beginner), **Focus** (Flashcards, Code Examples), and **Length**. |
-| **Full Library RAG Pipeline** | Uses `gemini-embedding-001` and **ChromaDB** to securely slice and embed chapters mathematically, allowing the AI to cite specific textbook pages instantly via Semantic Search. |
-| **Interactive Q&A & Web Search 🌐** | Chat natively with the LLM about your textbooks. Live Web Search dynamically bridges Google's enterprise **Search Grounding APIs** into your chat, merging local context with real-time internet data. |
-| **1-Click Anki Generator 🗃️** | AI extracts factual data from your notes, injecting pairs seamlessly into an SQLite database via `genanki`, handing you an `.apkg` file directly to import into Desktop Anki Software. |
-| **Podcast Mode 🎧** | Seamlessly converts Markdown notes into an accessible spoken podcast natively in the browser leveraging `gTTS` (Google Text-To-Speech). |
-| **Cloud DB & OAuth 2.0 ☁️** | Hooked dynamically to a remote **Supabase (PostgreSQL)** database. Saves every single chat session against your UUID. Log in via Email/Password, **Google**, or **Github** OAuth. |
+| **Live Sensor Telemetry** | 🌡️ Live temperature and humidity charts updated continuously every 15 seconds directly from the DHT11. |
+| **Data Persistence** | 📈 Historical data table automatically retaining and displaying the most recent 30 sensor readings. |
+| **AI Chat Assistant** | 💬 Interactive chat interface to ask complex weather-related queries, driven by Mistral's LLM. |
+| **Responsive Dark UI** | 🌓 Beautiful, responsive dark-themed interface crafted with HTML, CSS, and Chart.js for optimal viewing. |
 
 ---
 
-## 🛠️ Third-Party Integration Stack & APIs Implemented
-
-The architecture integrates deeply with Google's AI ecosystem and Supabase to deliver a seamless, cloud-native experience.
-
-### 🔌 Real APIs Implemented
+## 🛠️ Third-Party Integration Stack
 
 | Service | Purpose |
 |---------|---------|
-| **Supabase Authentication** | Handles user sessions via Email/Password, Google OAuth, and GitHub OAuth |
-| **Supabase PostgreSQL** | Remote relational database storing user profiles, document metadata, and chat histories |
-| **Google Gemini 2.5 Flash API** | Advanced cloud-based reasoning and synthesis for chat, note generation, and Anki extraction |
-| **Google Search Grounding API** | Real-time web search capabilities injected into the LLM context |
-| **ChromaDB** | Local vector store for high-speed semantic search over chunked PDF embeddings |
-| **gTTS (Google Text-To-Speech)** | Audio generation pipeline for the Podcast Mode |
+| **Mistral AI** | Cloud-based LLM API utilized for processing and answering natural language weather queries. |
+| **Chart.js** | Client-side charting library for rendering dynamic, animated sensor data visualization. |
+| **Adafruit CircuitPython** | Python library designed for reading low-level signals from the DHT11 hardware via GPIO. |
 
 ---
 
 ## 🚀 Installation & Setup
 
-Ensure you have Python 3.10+ installed.
+> **Note:** The Raspberry Pi must have GPIO access and the required system-level libraries installed for the Adafruit package to function.
 
-### 1. Clone & Virtual Environment
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/ai-study-notes-agent.git
-cd ai-study-notes-agent
-python -m venv venv
+git clone https://github.com/JaleedAhmad/weather-chat-dashboard.git
+cd weather-chat-dashboard
+```
+
+### 2. Virtual Environment (Recommended)
+```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 2. Install Dependencies
+### 3. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configure Environment Variables
-Create a `.env` file inside the root folder matching this exact blueprint:
-
-```env
-# Google AI API Key
-GEMINI_API_KEY=your_gemini_api_key
-
-# Supabase Postgres Deployment
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_KEY=your_supabase_anon_public_key
-
-# Optional OAuth APIs
-GOOGLE_CLIENT_ID=your_google_oauth_client_id
-GOOGLE_CLIENT_SECRET=your_google_oauth_secret
-GITHUB_CLIENT_ID=your_github_oauth_client_id
-GITHUB_CLIENT_SECRET=your_github_oauth_secret
+### 4. Configure Mistral API Key
+In `app.py`, update the configuration block with your live credentials:
+```python
+MISTRAL_API_KEY = "your_api_key_here"
 ```
 
-### 4. Initialize Supabase Datastore
-You must execute this SQL block in your Supabase SQL Editor:
-```sql
-CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  email TEXT UNIQUE NOT NULL,
-  password_hash TEXT,
-  provider TEXT DEFAULT 'email',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-CREATE TABLE sessions (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-  filename TEXT NOT NULL,
-  pdf_text TEXT,
-  notes TEXT,
-  chat_history JSONB DEFAULT '[]'::jsonb,
-  timestamp TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-ALTER TABLE users DISABLE ROW LEVEL SECURITY;
-ALTER TABLE sessions DISABLE ROW LEVEL SECURITY;
-```
-
-### 5. Launch Application
+### 5. Launch the Application
 ```bash
-source venv/bin/activate  # (Use .\venv\Scripts\activate on Windows)
-streamlit run app.py
+python app.py
 ```
+*Visit the app in your browser on the same network:*
+`http://<raspberry-pi-ip>:5050`
 
 ---
 
 ## 📁 Project Directory Map
 
 ```text
-ai-study-notes-agent/
-├── app.py              # Main Entry Point (Streamlit)
+weather-chat-dashboard/
+├── app.py              # Flask API Entrypoint & Logic
 ├── requirements.txt    # Python Dependencies
-├── .env                # Secret Keys (Not tracked)
-├── src/
-│   ├── core/           # Agent Logic, RAG, Prompts
-│   ├── database/       # Supabase Client & Operations
-│   ├── auth/           # OAuth 2.0 (Google/GitHub)
-│   ├── ui/             # Modular Streamlit UI Components
-│   ├── exporters/      # PDF, Anki, & Audio Generation
-│   └── utils/          # PDF Reader & Utility Helpers
-└── tests/              # Test Scripts & Debug Utilities
+├── README.md           # Documentation
+├── static/
+│   ├── script.js       # Chart.js & AJAX requests
+│   └── style.css       # Dark-mode styling
+├── templates/
+│   └── index.html      # Main Dashboard View
+└── diagrams/           # System & Hardware Diagrams
+    ├── api_structure.png
+    ├── hardware_circuit_diagram.png
+    ├── hardware_workflow_weather_monitoring.png
+    └── software_workflow_iot_system.png
 ```
 
 ---
 
-<p align="center">Built with ❤️ for intelligent, local-first learning dynamics.</p>
+## 👥 Author
+
+**Jaleed Ahmad**
+* Weather Monitoring & Chat Dashboard
+* [@JaleedAhmad](https://github.com/JaleedAhmad)
+
+*Feel free to open issues or contribute to the project!*
 
 ---
 
@@ -244,7 +202,7 @@ ai-study-notes-agent/
 ```
 MIT License
 
-Copyright (c) 2025 AI Study Notes Agent
+Copyright (c) 2025 Jaleed Ahmad
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
